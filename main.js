@@ -10,7 +10,7 @@ const codigoMorse = {
 const $texto = document.getElementById('texto');
 const $resultado = document.getElementById('resultado');
 const $palabra = document.getElementById('palabra');
-const caracteresEspeciales = /[^a-zA-Z0-9áéíóúÁÉÍÓÚüÜ\s]/;
+const caracteresEspeciales = /[^a-zA-Z0-9áéíóúÁÉÍÓÚüÜ\s.-]/;
 
 let textoInput = [];
 let resultado = [];
