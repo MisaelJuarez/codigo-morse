@@ -10,6 +10,7 @@ const codigoMorse = {
 const $texto = document.getElementById('texto');
 const $resultado = document.getElementById('resultado');
 const $palabra = document.getElementById('palabra');
+const caracteresEspeciales = /[^a-zA-Z0-9áéíóúÁÉÍÓÚüÜ\s]/;
 
 let textoInput = [];
 let resultado = [];
@@ -19,6 +20,8 @@ const validaciones = (texto) => {
         return [false,'No puedes dejar el input vacio'];
     } else if (!isNaN(texto)) {
         return [false,'No puedes ingresar numeros'];
+    } else if (caracteresEspeciales.test(texto)) {
+        return [false,'No puedes ingresar caracteres especiales'];
     } else {
         return [true];
     }
@@ -45,8 +48,8 @@ const moserApalabra = (texto,res) => {
             }
         }
     });
-    $resultado.value = res.join().replaceAll(',',' ');
-    $palabra.textContent = texto.join('');
+    $resultado.value = res.join('').replaceAll(',',' ');
+    $palabra.textContent = texto.join().replaceAll(',',' ');
     $texto.value = '';
 }
 
